@@ -1,13 +1,17 @@
 #!/bin/bash
 
+readonly yocto_ver=dunfell
+
 sudo apt install git -y
 
 sudo apt install gawk wget git-core diffstat unzip texinfo gcc-multilib \
      build-essential chrpath socat libsdl1.2-dev xterm -y
      
-git clone -b dunfell git://git.yoctoproject.org/poky.git && cd poky
+git clone -b $yocto_ver git://git.yoctoproject.org/poky.git && cd poky
 
-git clone -b dunfell git://git.openembedded.org/meta-openembedded && git clone -b dunfell git://git.yoctoproject.org/meta-raspberrypi
+git clone -b $yocto_ver git://git.openembedded.org/meta-openembedded
+
+git clone -b $yocto_ver git://git.yoctoproject.org/meta-raspberrypi
 
 source oe-init-build-env build-rpi
 
