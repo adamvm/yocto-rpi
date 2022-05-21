@@ -27,6 +27,6 @@ bitbake-layers add-layer ../meta-raspberrypi
 
 echo 'MACHINE = "raspberrypi3-64"' >> conf/local.conf
 
-echo 'EXTRA_IMAGE_FEATURES ?= "debug-tweaks ssh-server-openssh"' >> conf/local.conf
+echo 'EXTRA_IMAGE_FEATURES += "debug-tweaks ssh-server-openssh"' >> conf/local.conf
 
 bitbake rpi-test-image --runall=fetch && bitbake rpi-test-image
